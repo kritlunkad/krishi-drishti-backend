@@ -67,6 +67,10 @@ All endpoints are open source and designed for easy integration and offline use.
 - `/api/history` — Retrieve all data for a farmer (profile, detections, chats)
 - `/api/translate` — Translate text between English and Hindi
 
+**Note:**  
+- The `/api/translate` endpoint runs on port **8100**.  
+- All other backend endpoints run on port **8000**.
+
 ---
 
 ## File Structure
@@ -97,15 +101,20 @@ All endpoints are open source and designed for easy integration and offline use.
    - To migrate, use `migration.sql` as needed.
 
 3. **Start the Server:**
-   ```bash
-   uvicorn main:app --reload
-   ```
+   - For backend APIs (excluding translation):  
+     ```bash
+     uvicorn main:app --reload --port 8000
+     ```
+   - For translation API:  
+     ```bash
+     uvicorn test_hindi:app --reload --port 8100
+     ```
 
 4. **API Usage:**
    - Use tools like Postman or a frontend to interact with endpoints.
    - For disease detection, upload an image file and provide Aadhar.
    - For chatbot, send context and question (language: "en" or "hi").
-   - For translation, use the `/api/translate` endpoint.
+   - For translation, use the `/api/translate` endpoint on port 8100.
 
 ---
 
