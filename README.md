@@ -24,6 +24,9 @@
 - **AI Workflow with LangChain:**  
   We have used LangChain with Ollama to create an AI workflow that takes context from forms filled out by farmers and uses our fine-tuned Llama 3.2 1B model (`agriculture-qa-fast`). This allows the chatbot to answer questions with more relevance and personalization based on the farmer's context.
 
+- **Interactive Farm Mapping with Three.js:**  
+  We provide a very easy-to-use interface built with Three.js for farmers to create rough maps of their farm areas. Farmers can mark the crops they have planted, comment on diseases observed in particular areas, and save this information for offline use. This mapping tool is lightweight, intuitive, and requires minimal computational resources, making it accessible even on low-end devices.
+
 ---
 
 ## Models Used
@@ -32,7 +35,7 @@
   We used the open-source Llama 3.2 (1B parameter) model, fine-tuned using the Hugging Face KisanVani dataset. The KisanVani dataset is specifically focused on Indian agriculture, so we used it to ensure the model's responses are highly relevant for Indian farmers. The resulting model is named `agriculture-qa-fast` and is integrated into our chatbot to answer farmers' queries.
 
 - **Plant Disease Detection:**  
-  For image-based disease detection, we used a Hugging Face pre-trained MobileNet model.
+  For image-based disease detection, we used the Hugging Face model [`linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification`](https://huggingface.co/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification), a pre-trained MobileNetV2 model. This model is lightweight and works efficiently offline, making it ideal for resource-constrained environments.
 
 - **Translation:**  
   For English↔Hindi translation, we used Argos Translate and exposed FastAPI endpoints for translation.
@@ -130,7 +133,11 @@ All endpoints are open source and designed for easy integration and offline use.
   The main goal was to use models that can run offline, with minimal computational overhead, making them suitable for resource-constrained devices.
 
 - **Demonstration for Edge Devices:**  
-  The system is designed as a demonstration for easy deployment and use on low-resource or offline environments.
+  This project is specifically designed to demonstrate how a fine-tuned Llama 3.2 1B model (for chatbot), LangChain (for AI workflow and context handling), and a MobileNetV2-based disease detection model (`linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification`) can work efficiently in resource-constrained and offline situations.  
+  Farmers can use the system even without internet connectivity and with minimal computing resources.
+
+- **Easy Farm Mapping:**  
+  The Three.js-based mapping interface allows farmers to easily create and save maps of their farm, mark crops, comment on diseases, and use this information offline. This interface is highly intuitive and lightweight, ensuring accessibility on low-end devices.
 
 - **Multilingual:**  
   All chatbot endpoints support both English and Hindi (auto-translation).
