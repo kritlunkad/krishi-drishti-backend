@@ -21,12 +21,15 @@
 - **Automated Model Management:**  
   Scripts handle model creation, updating, and removal seamlessly.
 
+- **AI Workflow with LangChain:**  
+  We have used LangChain with Ollama to create an AI workflow that takes context from forms filled out by farmers and uses our fine-tuned Llama 3.2 1B model (`agriculture-qa-fast`). This allows the chatbot to answer questions with more relevance and personalization based on the farmer's context.
+
 ---
 
 ## Models Used
 
 - **Chatbot Model:**  
-  We used the open-source Llama 3.2 (1B parameter) model, fine-tuned using the Hugging Face KisanVani dataset. The resulting model is named `agriculture-qa-fast` and is integrated into our chatbot to answer farmers' queries.
+  We used the open-source Llama 3.2 (1B parameter) model, fine-tuned using the Hugging Face KisanVani dataset. The KisanVani dataset is specifically focused on Indian agriculture, so we used it to ensure the model's responses are highly relevant for Indian farmers. The resulting model is named `agriculture-qa-fast` and is integrated into our chatbot to answer farmers' queries.
 
 - **Plant Disease Detection:**  
   For image-based disease detection, we used a Hugging Face pre-trained MobileNet model.
