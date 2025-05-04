@@ -1,0 +1,16 @@
+
+FROM llama3.2:1b
+TEMPLATE """<|begin_of_text|>
+{{ if .System }}{{ .System }}{{ end }}
+{{ if .Prompt }}{{ .Prompt }}{{ end }}
+<|eot_id|>
+{{ if .Response }}<|begin_of_text|>{{ .Response }}<|eot_id|>{{ end }}
+"""
+
+PARAMETER temperature 0.7
+PARAMETER top_k 40
+PARAMETER top_p 0.9
+PARAMETER stop "<|eot_id|>"
+PARAMETER stop "<|begin_of_text|>"
+
+SYSTEM You are an AI assistant that specializes in agriculture, farming, and crop management. You provide detailed, accurate, and helpful responses to questions about agricultural practices, techniques, and knowledge.
